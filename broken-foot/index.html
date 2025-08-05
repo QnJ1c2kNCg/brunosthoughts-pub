@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>brunosthoughts</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<div class="timer-container">
+    <h1>days since i broke my foot in Yangshuo China (on May 13th, 20:00 Beijing time) </h1>
+
+    <div class="timer-display" style="display: flex; justify-content: center; align-items: center;" id="totalTime">
+        Calculating...
+    </div>
+</div>
+
+<script>
+    const startDate = new Date('2025-05-13T13:00:00');
+    function updateTimer() {
+        const now = new Date();
+        const timeDiff = now - startDate;
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById('totalTime').textContent =
+            `${days}d ${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
+    }
+
+    // Update immediately and then every second
+    updateTimer();
+    setInterval(updateTimer, 1000);
+</script>
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;">
+    <img src="/images/fracture.jpg" style="transform: rotate(-90deg);" alt="Description" width="600">
+</div>
+
+    </div>
+  </section>
+</body>
+
+</html>
